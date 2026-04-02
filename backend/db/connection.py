@@ -7,7 +7,7 @@ load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
-print("DB URL:", DATABASE_URL)  # DEBUG LINE
+print("DB URL:", DATABASE_URL)  # debug
 
 engine = create_engine(
     DATABASE_URL,

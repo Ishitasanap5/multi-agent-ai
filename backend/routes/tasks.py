@@ -1,20 +1,19 @@
 from fastapi import APIRouter
-from db.connection import SessionLocal
-from db.models import Task
+from agents.task_agent import TaskAgent
 
 router = APIRouter()
 
+# Initialize agent
+task_agent = TaskAgent()
+
+
+# ✅ Create Task (uses agent)
 @router.post("/tasks")
 def create_task(title: str):
-    db = SessionLocal()
+    return task_agent.create_task(title)
 
-    task = Task(title=title, status="pending")
-    db.add(task)
-    db.commit()
-    db.refresh(task)
 
-    return {
-        "id": task.id,
-        "title": task.title,
-        "status": task.status
-    }
+# ✅ Get All Tasks (optional but VERY useful)
+@router.get("/tasks")
+def get_tasks():
+    return task_agent.get_all_tasks()
