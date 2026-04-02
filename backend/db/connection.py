@@ -6,8 +6,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 print("DB URL:", DATABASE_URL)  # debug
+print("GROQ KEY:", GROQ_API_KEY)
 
 engine = create_engine(
     DATABASE_URL,
