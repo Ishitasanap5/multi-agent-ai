@@ -9,3 +9,10 @@ class Task(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String)
     status = Column(String)
+
+class Event(Base):
+    __tablename__ = "events"
+
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String)
+    time = Column(String)

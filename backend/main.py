@@ -3,6 +3,7 @@ from db.connection import engine
 from db.models import Base
 from routes.tasks import router as task_router
 from agents.task_agent import TaskAgent
+from routes.events import router as event_router
 
 app = FastAPI()
 
@@ -21,3 +22,4 @@ def test_agent():
 
 # include routes
 app.include_router(task_router)
+app.include_router(event_router)
